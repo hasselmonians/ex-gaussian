@@ -1,14 +1,14 @@
 # ex-gaussian
 Probability densities for exponentially-modified gaussian distributions
 
-### `exgauss_pdf.m`
+#### `exgauss_pdf.m`
 
 This function produces an unnormalized probability density function
 for the exGaussian distribution
 without serious numerical errors.
 It benefits from having the MATLAB Symbolic Toolbox installed.
 
-### `exgauss_kernel.m`
+#### `exgauss_kernel.m`
 
 This function wraps `exgauss_pdf` and normalizes the kernel.
 It takes in a vector of sample points `x` and a 4-vector of parameters `params`.
@@ -25,7 +25,7 @@ For example:
 k = exgauss_kernel(0:100, [1, 10, 3, 0.1]);
 ```
 
-### `truncate_kernel.m`
+#### `truncate_kernel.m`
 
 This function truncates a kernel *after* the mode of the distribution
 based on a cutoff parameter.
