@@ -48,6 +48,7 @@ You can also renormalize the kernel like so:
 truncated_kernel = truncate_kernel(kernel, 'Cutoff', 0.01, 'Normalize', true);
 ```
 
-Here, the kernel (dashed) and the truncated (cutoff = 0.01, solid black line)
-have been plotted on top of each other.
 ![The truncated kernel is much shorter than the regular kernel but contains basically the same information.](./demo_truncate_kernel.png)
+
+Here, the kernel (dashed black line) and the truncated (cutoff = 0.01, solid black line)
+have been plotted on top of each other.
