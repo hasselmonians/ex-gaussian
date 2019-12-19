@@ -25,6 +25,10 @@ function varargout = truncate_kernel(kernel, varargin)
   [~, max_index] = max(kernel);
   cutoff_index = max_index - 1 + find(kernel(max_index:end) < options.Cutoff);
 
+  if isempty(cutoff_index)
+    cutoff_index = max_index;
+  end
+
   %% Truncate the kernel
 
   % truncate the kernel
