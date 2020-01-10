@@ -33,7 +33,7 @@ function varargout = truncate_kernel(kernel, varargin)
 
   % print information about the truncation
   corelib.verb(options.Verbosity, 'ex-gaussian/truncate_kernel', ...
-    ['kernel truncated at index ' num2str(cutoff_index) '(' strlib.oval(cutoff_index / length(kernel)) '%)'])
+    ['kernel truncated at index ' num2str(cutoff_index) ' (' strlib.oval(100 * cutoff_index / length(kernel)) '%)'])
 
   %% Truncate the kernel
 
