@@ -6,6 +6,8 @@ function varargout = truncate_kernel(kernel, varargin)
   options.Cutoff = 0.05;
   % normalize the kernel after truncating?
   options.Normalize = false;
+  % print textual feedback
+  options.verbosity = false;
 
   % return the options struct if output exists but no input does
   if nargout && ~nargin
@@ -22,12 +24,16 @@ function varargout = truncate_kernel(kernel, varargin)
   % since we are assuming a unimodal kernel
   % which is to say, is monotonically decreasing after the maximum
 
-  [~, max_index] = max(kernel);
-  cutoff_index = max_index - 1 + find(kernel(max_index:end) < options.Cutoff);
+  [max_value, max_index] = max(kernel);
+  cutoff_index = max_index - 1 + find(kernel(max_index:end) < (options.Cutoff * max_value));
 
   if isempty(cutoff_index)
-    cutoff_index = max_index;
+    cutoff_index = length(kernel);
   end
+
+  % print information about the truncation
+  corelib.verb(options.verbosity, 'ex-gaussian/truncate_kernel', ...
+    ['kernel truncated at index ' num2str(cutoff_index) '(' strlib.oval(cutoff_index / length(kernel)) '%)'])
 
   %% Truncate the kernel
 
