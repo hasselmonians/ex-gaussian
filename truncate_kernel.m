@@ -7,7 +7,7 @@ function varargout = truncate_kernel(kernel, varargin)
   % normalize the kernel after truncating?
   options.Normalize = false;
   % print textual feedback
-  options.verbosity = false;
+  options.Verbosity = false;
 
   % return the options struct if output exists but no input does
   if nargout && ~nargin
@@ -32,7 +32,7 @@ function varargout = truncate_kernel(kernel, varargin)
   end
 
   % print information about the truncation
-  corelib.verb(options.verbosity, 'ex-gaussian/truncate_kernel', ...
+  corelib.verb(options.Verbosity, 'ex-gaussian/truncate_kernel', ...
     ['kernel truncated at index ' num2str(cutoff_index) '(' strlib.oval(cutoff_index / length(kernel)) '%)'])
 
   %% Truncate the kernel
