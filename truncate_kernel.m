@@ -25,7 +25,7 @@ function varargout = truncate_kernel(kernel, varargin)
   % which is to say, is monotonically decreasing after the maximum
 
   [max_value, max_index] = max(kernel);
-  cutoff_index = max_index - 1 + find(kernel(max_index:end) < (options.Cutoff * max_value));
+  cutoff_index = max_index - 1 + find(kernel(max_index:end) < (options.Cutoff * max_value), 1, 'first');
 
   if isempty(cutoff_index)
     cutoff_index = length(kernel);
